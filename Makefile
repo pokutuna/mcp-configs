@@ -14,11 +14,13 @@ config.json:
 # generate plist file for LaunchAgent
 .PHONY: mcp-proxy.plist
 mcp-proxy.plist:
+	# paths for npx & uvx
 	NODE_BIN=$$(mise where node)/bin && \
-	LAUNCHD_PATH=$$NODE_BIN:/usr/local/bin:/usr/bin:/bin \
+	UVX_PATH=$$(brew --prefix uv)/bin && \
+	LAUNCHD_PATH=$$NODE_BIN:$$UVX_PATH:/usr/local/bin:/usr/bin:/bin \
 	COMMAND_PATH=$$(which mcp-proxy) \
 	REPOSITORY=$$(pwd) \
-		envsubst < mcp-proxy.template.plist > mcp-proxy.plist
+	envsubst < mcp-proxy.template.plist > mcp-proxy.plist
 
 # register mcp-proxy as LaunchAgent
 .PHONY: install-agent

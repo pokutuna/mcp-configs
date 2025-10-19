@@ -12,7 +12,7 @@
     <key>ProgramArguments</key>
     <array>
       <string>$COMMAND_PATH</string>
-      <string>--config</string>
+      <string>-config</string>
       <string>$REPOSITORY/config.json</string>
     </array>
     <key>StandardOutPath</key>
