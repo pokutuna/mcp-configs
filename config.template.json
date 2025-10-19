@@ -1,0 +1,78 @@
+{
+  "mcpProxy": {
+    "baseURL": "http://localhost:7683",
+    "addr": ":7683",
+    "name": "mcp-proxy",
+    "type": "streamable-http",
+    "options": {
+      "panicIfInvalid": false,
+      "logEnabled": true
+    }
+  },
+  "mcpServers": {
+    "fetch": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--pull=always",
+        "mcp/fetch"
+      ]
+    },
+    "deepwiki": {
+      "transportType": "streamable-http",
+      "url": "https://mcp.deepwiki.com/mcp"
+    },
+    "chrome-tabs": {
+      "transportType": "stdio",
+      "command": "npm",
+      "args": [
+        "run",
+        "dev",
+        "--prefix=/Users/pokutuna/ghq/github.com/pokutuna/mcp-chrome-tabs"
+      ]
+    },
+    "google-search": {
+      "transportType": "streamable-http",
+      "url": "{{ op://Private/PERSONAL_GOOGLE_SEARCH_MCP/URL }}",
+      "headers": {
+        "X-USER": "pokutuna"
+      }
+    },
+    "playwright": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--init",
+        "--pull=always",
+        "mcr.microsoft.com/playwright/mcp",
+        "--viewport-size=1280,720"
+      ]
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "chrome-devtools-mcp@latest"
+      ]
+    },
+    "perplexity-ask": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--pull=always",
+        "-e",
+        "PERPLEXITY_API_KEY",
+        "mcp/perplexity-ask"
+      ],
+      "env": {
+        "PERPLEXITY_API_KEY": "{{ op://Private/PERPREXITY_API_KEY/credential }}"
+      },
+      "timeout": 300
+    }
+  }
+}
