@@ -44,3 +44,9 @@ restart:
 unload:
 	launchctl unload -w ~/Library/LaunchAgents/mcp-proxy.plist
 	rm ~/Library/LaunchAgents/mcp-proxy.plist
+
+# create symlink to presets directory
+.PHONY: link-presets
+link-presets:
+	rm -rf ~/mcp-presets
+	ln -sf $(PWD)/presets ~/mcp-presets

@@ -19,9 +19,9 @@ mcp-configs
 
 ### ~/.claude.json 設定例
 
-設定は `config.json` に集約し、単に URL を指定するだけです
+設定は `config.json` に集約し、利用側では単に URL を指定するだけにします
 
-```json
+```jsonc
 {
   // ...
   "mcpServers": {
@@ -41,6 +41,14 @@ mcp-configs
   // ...
 }
 ```
+
+### presets
+
+コンテキストに余計なものを乗せないよう、常用しない MCP サーバは `presets/` 以下に定義しておいて `claude --mcp-config=` で指定して必要なときだけ設定します。
+
+`$ make link-presets` で `~/mcp-presets` にシンボリックリンクを作成できるので
+
+`$ claude --mcp-config=$HOME/mcp-presets/devtools.json`
 
 ## 注意
 
