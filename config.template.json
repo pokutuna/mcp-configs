@@ -73,6 +73,10 @@
         "PERPLEXITY_API_KEY": "{{ op://Private/PERPREXITY_API_KEY/credential }}"
       },
       "timeout": 300
+    },
+    "docs-langchain": {
+      "type": "http",
+      "url": "https://docs.langchain.com/mcp"
     }
   }
 }
