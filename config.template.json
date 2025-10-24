@@ -75,7 +75,7 @@
       "timeout": 300
     },
     "docs-langchain": {
-      "type": "http",
+      "transportType": "streamable-http",
       "url": "https://docs.langchain.com/mcp"
     }
   }
