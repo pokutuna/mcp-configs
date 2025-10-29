@@ -77,6 +77,15 @@
     "docs-langchain": {
       "transportType": "streamable-http",
       "url": "https://docs.langchain.com/mcp"
+    },
+    "any-script": {
+      "command": "npx",
+      "args": [
+        "any-script-mcp"
+      ],
+      "env": {
+        "ANY_SCRIPT_MCP_CONFIG": "${REPOSITORY}/any-script-config.yaml"
+      }
     }
   }
 }

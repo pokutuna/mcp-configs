@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/izumin5210/any-script-mcp/main/config.schema.json
+
+tools:
+- name: kintai_passwd
+  description: 勤怠システムの ID と Password を取得する
+  run: |
+    PATH="/opt/homebrew/bin:$PATH"
+    echo '{"username":"{{ op://Employee/kintai/username }}","password":"{{ op://Employee/kintai/password }}"}' | op inject

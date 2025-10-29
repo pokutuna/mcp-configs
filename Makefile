@@ -9,7 +9,8 @@ install-proxy:
 # https://developer.1password.com/docs/cli/reference/commands/inject
 .PHONY: config.json
 config.json:
-	op inject -i config.template.json -o config.json --force
+	export REPOSITORY=$$(pwd) && op inject --account=my.1password.com -i config.template.json | envsubst > config.json
+	chmod 600 config.json
 
 # generate plist file for LaunchAgent
 .PHONY: mcp-proxy.plist

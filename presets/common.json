@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "deepwiki": {
+      "type": "http",
+      "url": "http://localhost:7683/deepwiki/mcp"
+    },
+    "chrome-tabs": {
+      "type": "http",
+      "url": "http://localhost:7683/chrome-tabs/mcp"
+    },
+    "google-search": {
+      "type": "http",
+      "url": "http://localhost:7683/google-search/mcp"
+    }
+  }
+}
