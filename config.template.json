@@ -72,11 +72,10 @@
       "env": {
         "PERPLEXITY_API_KEY": "{{ op://Private/PERPREXITY_API_KEY/credential }}"
       },
+      "options": {
+        "disabled": true
+      },
       "timeout": 300
-    },
-    "docs-langchain": {
-      "transportType": "streamable-http",
-      "url": "https://docs.langchain.com/mcp"
     },
     "any-script": {
       "command": "npx",
@@ -86,6 +85,38 @@
       "env": {
         "ANY_SCRIPT_MCP_CONFIG": "${REPOSITORY}/any-script-config.yaml"
       }
+    },
+    "context7": {
+      "transportType": "streamable-http",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "Authorization": "Bearer {{ op://Private/CONTEXT7_API_KEY/credential }}"
+      }
+    },
+    "terraform": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--pull=always",
+        "hashicorp/terraform-mcp-server:latest"
+      ]
+    },
+    "docs-langchain": {
+      "transportType": "streamable-http",
+      "url": "https://docs.langchain.com/mcp"
+    },
+    "livekit-docs": {
+      "transportType": "streamable-http",
+      "url": "https://docs.livekit.io/mcp",
+      "options": {
+        "disabled": true
+      }
+    },
+    "huggingface": {
+      "transportType": "streamable-http",
+      "url": "https://huggingface.co/mcp"
     }
   }
 }
