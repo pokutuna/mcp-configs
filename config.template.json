@@ -48,6 +48,8 @@
         "--rm",
         "--init",
         "--pull=always",
+        "-v",
+        "/tmp/playwright-output:/tmp/playwright-output",
         "mcr.microsoft.com/playwright/mcp",
         "--viewport-size=1280,720"
       ]

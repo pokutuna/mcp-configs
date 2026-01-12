@@ -5,6 +5,11 @@ all: install
 install-proxy:
 	go install github.com/TBXark/mcp-proxy@latest
 
+# create directories for MCP servers
+.PHONY: dirs
+dirs:
+	mkdir -p /tmp/playwright-output
+
 # put config.json with 1Password CLI
 # https://developer.1password.com/docs/cli/reference/commands/inject
 .PHONY: config.json
@@ -25,7 +30,7 @@ mcp-proxy.plist:
 
 # register mcp-proxy as LaunchAgent
 .PHONY: install-agent
-install-agent: config.json mcp-proxy.plist
+install-agent: dirs config.json mcp-proxy.plist
 	cp mcp-proxy.plist ~/Library/LaunchAgents/mcp-proxy.plist
 	launchctl unload -w ~/Library/LaunchAgents/mcp-proxy.plist 2>/dev/null || true
 	launchctl load -w ~/Library/LaunchAgents/mcp-proxy.plist
