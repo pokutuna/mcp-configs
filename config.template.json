@@ -54,6 +54,16 @@
         "--viewport-size=1280,720"
       ]
     },
+    "playwright-extension": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest",
+        "--extension"
+      ],
+      "env": {
+        "PLAYWRIGHT_MCP_EXTENSION_TOKEN": "{{ op://Private/PLAYWRIGHT_MCP_EXTENSION_TOKEN/credential }}"
+      }
+    },
     "chrome-devtools": {
       "command": "npx",
       "args": [
