@@ -3,7 +3,7 @@ all: install
 # install TBXark/mcp-proxy
 .PHONY: install-proxy
 install-proxy:
-	go install github.com/TBXark/mcp-proxy@latest
+	go install github.com/tbxark/mcp-proxy@latest
 
 # create directories for MCP servers
 .PHONY: dirs
