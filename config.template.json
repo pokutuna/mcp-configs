@@ -3,6 +3,7 @@
     "baseURL": "http://localhost:7683",
     "addr": ":7683",
     "name": "mcp-proxy",
+    "version": "1.0.0",
     "type": "streamable-http",
     "options": {
       "panicIfInvalid": false,
@@ -86,8 +87,7 @@
       },
       "options": {
         "disabled": true
-      },
-      "timeout": 300
+      }
     },
     "any-script": {
       "command": "npx",
@@ -117,7 +117,10 @@
     },
     "docs-langchain": {
       "transportType": "streamable-http",
-      "url": "https://docs.langchain.com/mcp"
+      "url": "https://docs.langchain.com/mcp",
+      "options": {
+        "disabled": true
+      }
     },
     "livekit-docs": {
       "transportType": "streamable-http",
@@ -137,7 +140,10 @@
         "mcpdoc",
         "--urls=AgentDevelopmentKit:https://google.github.io/adk-docs/llms.txt",
         "--transport=stdio"
-      ]
+      ],
+      "options": {
+        "disabled": true
+      }
     }
   }
 }
